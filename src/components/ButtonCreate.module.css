@@ -1,0 +1,21 @@
+.container{
+  background-color: var(--blue-dark);
+  color: var(--gray-100);
+
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 140%;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: color 0.2ms;
+}
+
+.container:hover{
+  background-color: var(--blue);
+}
