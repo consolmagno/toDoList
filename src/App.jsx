@@ -5,6 +5,7 @@ import styles from './App.module.css'
 import { Input } from './components/Input'
 import { ButtonCreate } from './components/ButtonCreate'
 import { Task } from './components/Task/Task'
+// import { Empty } from './components/Task/Empty'
 
 
 export function App() {
@@ -29,11 +30,12 @@ export function App() {
           </div>
           <div className={styles.done}>
             <strong>Concluídas</strong>
-            <span>0</span>
+            <span>2 de 5</span>
           </div>
         </div>
+        {/* <Empty/> */}
+        <Task/>
       </div>
-      <Task/>
     </div>
     
     
