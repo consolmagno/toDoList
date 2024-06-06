@@ -14,59 +14,90 @@
   gap: 0.75rem;
 }
 
-.taskControl{
+.container{
   color: var(--gray-100);
   font-size: 0.875rem;
   line-height: 140%;
   text-align: left;
-  align-items: top;
+  padding-left: 1.75rem;
 
-  display: grid;
-  grid-template-columns: 1rem auto;
-  gap: 1rem;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  display: block;
 }
 
-input[type="checkbox"]{
-  -webkit-appearance: none;
-  appearance: none;
-  margin: 0;
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkMark {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 1rem;
   height: 1rem;
   border: 1px solid var(--blue);
   border-radius: 999px;
-  cursor: pointer;
-
-  display: grid;
-  place-content: center;
+  background-color: transparent;
 }
 
-input[type="checkbox"]::before {
-  content: "";
-  width: 1rem;
-  height: 1rem;
-  box-shadow: inset 1rem 1rem var(--purple-dark);
-  border-radius: 999px;
+.container:hover input ~ .checkMark {
+  border: 1px solid var(--blue-dark);
+  background-color: transparent;
+}
 
-  transform: scale(0);
+.container input:checked ~ .checkMark {
+  background-color: var(--purple-dark);
+  border: none;
+  transform: scale(1);
   transition: 120ms transform ease-in-out;
 }
 
-input[type="checkbox"]:checked::before {
-  transform: scale(1);
+.container:hover input:checked ~ .checkMark {
+  background-color: var(--purple);
 }
 
-/* input[type="checkbox"]:checked::before:hover {
-  box-shadow: inset 1rem 1rem var(--purple);
-} */
+.checkMark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
 
-input[type="checkbox"]:hover{
-  border: 1px solid var(--blue-dark);
+.container input:checked ~ .checkMark:after {
+  display: block;
+}
+
+.container .checkMark:after {
+  left: 5px;
+  top: 3px;
+  width: 3px;
+  height: 6px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.container input:checked ~ p{
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
+.check span{
+  color: red;
 }
 
 .delete{
   background-color: transparent;
   cursor: pointer;
-  padding: 5.5px;
+  padding: 5px 6px;
+  height: 1.5rem;
 }
 
 .delete:hover{
